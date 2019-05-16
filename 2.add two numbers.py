@@ -63,9 +63,16 @@ def addTwoNumbers(l1,l2):
 
         valCurr = up + followingNode.val
         up = valCurr // 10
+
+        # Attention: Following steps should not be merged, a node object should be defined once to distinguish itself
+        # wrong to do the followings:
+        # answerNode.next = ListNode(valCurr % 10)
+        # answerNode = ListNode(valCurr % 10)
+
         nextNode = ListNode(valCurr % 10)
         answerNode.next = nextNode
         answerNode = nextNode
+
         followingNode = followingNode.next
 
     # if there is a carry residual while following node doesnt exits, just create a new node with carry
