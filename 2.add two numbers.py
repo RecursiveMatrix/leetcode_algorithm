@@ -24,7 +24,8 @@ def addTwoNumbers(l1,l2):
     up = valCurr // 10
 
     # create next node using the 10 mode of current node value
-    prevNode = answerNode = ListNode(valCurr % 10)
+    #
+    result = answerNode = ListNode(valCurr % 10)
 
     # moving node to next
     l1 = l1.next
@@ -40,8 +41,8 @@ def addTwoNumbers(l1,l2):
         nextNode = ListNode(valCurr % 10)
 
         # assign the result to the current node and moving node to next:
-        prevNode.next = nextNode
-        prevNode = nextNode
+        answerNode.next = nextNode
+        answerNode = nextNode
 
         # moving to the next node for l1 and l2
         l1 = l1.next
@@ -63,26 +64,26 @@ def addTwoNumbers(l1,l2):
         valCurr = up + followingNode.val
         up = valCurr // 10
         nextNode = ListNode(valCurr % 10)
-        prevNode.next = nextNode
-        prevNode = nextNode
+        answerNode.next = nextNode
+        answerNode = nextNode
         followingNode = followingNode.next
 
     # if there is a carry residual while following node doesnt exits, just create a new node with carry
     if up != 0 and followingNode is None:
 
         nextNode = ListNode(up)
-        prevNode.next = nextNode
-        prevNode = nextNode
+        answerNode.next = nextNode
+        answerNode = nextNode
 
     # if there is a carry residual while next node exits, just attach the rest nodes to the answer nodes
     if up == 0 and followingNode is not None:
         while followingNode is not None:
             nextNode = ListNode(followingNode.val)
-            prevNode.next = nextNode
-            prevNode = nextNode
+            answerNode.next = nextNode
+            answerNode = nextNode
             followingNode = followingNode.next
 
-    return answerNode
+    return result
 
 l1 = ListNode(2)
 l1.next = ListNode(4)
