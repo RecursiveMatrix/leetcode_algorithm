@@ -24,7 +24,7 @@ def addTwoNumbers(l1,l2):
     up = valCurr // 10
 
     # create next node using the 10 mode of current node value
-    #
+    # result keeps track of the first node
     result = answerNode = ListNode(valCurr % 10)
 
     # moving node to next
@@ -83,6 +83,7 @@ def addTwoNumbers(l1,l2):
             answerNode = nextNode
             followingNode = followingNode.next
 
+    # since we want to return a linked list, we need to return from the first node of the linked list
     return result
 
 l1 = ListNode(2)
