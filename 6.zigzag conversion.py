@@ -5,6 +5,10 @@
 #   Y   I   R
 
 def convert(s,numRows):
+    
+    # This is for special case otherwise there might be running time error on leetcode.
+    if numRows == 1 or numRows>=len(s):
+        return s
 
     # initiate several strings in the result list
     result = [''for i in range(numRows)]
